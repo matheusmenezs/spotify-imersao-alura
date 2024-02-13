@@ -3,7 +3,7 @@ const resultsArtist = document.getElementById('result-artist')
 const resultPlaylist = document.getElementById('result-playlists')
 
 function requestApi(searchTerm) {
-    fetch(`http://localhost:3001/artists?name_like=${searchTerm}`)
+    fetch(`http://localhost:3000/artists?name_like=${searchTerm}`)
         .then((response) => response.json())
         .then((results) => displayResults(results));
 }
@@ -26,8 +26,8 @@ function displayResults(results) {
 document.addEventListener('input', () => {
     const searchTerm = searchInput.value.toLowerCase()
     if (searchTerm === '') {
-        resultPlaylist.classList.add('hidden')
-        resultsArtist.classList.remove('hidden')
+        resultPlaylist.classList.remove('hidden')
+        resultsArtist.classList.add('hidden')
         return
     }
 
